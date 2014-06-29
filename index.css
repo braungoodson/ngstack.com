@@ -1,0 +1,13 @@
+.base-brick {
+	width:290px;
+	margin:5px;
+}
+
+div.panel-default {
+	margin-bottom:0px;
+}
+
+.list-group {
+	margin-top:5px;
+	margin-bottom:0px;
+}

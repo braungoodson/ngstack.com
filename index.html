@@ -8,13 +8,50 @@
 		<link rel="stylesheet" type="text/css" href="bower_components/twitter/dist/css/bootstrap-theme.min.css" />
 		<link rel="stylesheet" type="text/css" href="index.css" />
 	</head>
-<body>
-	<div masonry class="wall" ng-controller="AppController">
-	    <div class="stone" ng-repeat="stone in mason.stones">
-	        <img ng-src="{{stone.src}}" alt="A stone by the Mason.">
-	        <h1>{{stone.header}}</h1>
-	        {{stone.body}}
-	    </div>
+<body ng-controller="AppController">
+	<div class="container-fluid">
+		<!-- br />
+		<div class="panel">
+	    	<div class="panel panel-default">
+	    		<div class="panel-heading">
+						<h3 class="panel-title">List Maker</h3>
+					</div>
+				<div class="panel-body">
+					<div class="input-group">
+						<span class="input-group-addon">List</span>
+						<input type="text" class="form-control" placeholder="List name." ng-model="list.name">
+						<span class="input-group-btn">
+							<button class="btn btn-default" type="button"><i class="glyphicon glyphicon-plus"></i></button>
+						</span>
+					</div>
+			    </div>
+			</div>
+		</div -->
+		<div masonry="{isFitWidth:true}" column-width="300" item-selector=".base-brick" load-images="false">
+		    <div masonry-brick class="base-brick" ng-repeat="brick in bricks">
+		    	<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">{{brick.name}}</h3>
+					</div>
+					<div class="panel-body">
+						<div class="input-group">
+							<span class="input-group-addon">Item</span>
+							<input type="text" class="form-control" placeholder="I am an item." ng-model="brick.item.header">
+							<span class="input-group-btn">
+								<button class="btn btn-default" type="button" ng-click="brick.addItem();"><i class="glyphicon glyphicon-plus"></i></button>
+							</span>
+						</div>
+				        <div class="list-group">
+							<a href="#" class="list-group-item" ng-repeat="item in brick.items track by $index">
+								<span class="badge pull-right" ng-click="brick.removeItem($index);"><i class="glyphicon glyphicon-remove"></i></span>
+								<h4 class="list-group-item-heading">{{item.header}}</h4>
+								<p class="list-group-item-text">{{item.body}}</p>
+							</a>
+						</div>
+				    </div>
+				</div>
+		    </div>
+		</div>
 	</div>
 	<script src="bower_components/jquery/dist/jquery.min.js"></script>
 	<script src="bower_components/twitter/dist/js/bootstrap.min.js"></script>

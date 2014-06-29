@@ -1,31 +1,28 @@
 angular
 	.module('app',['wu.masonry'])
-	.factory('MasonFactory',function MasonFactory() {
-		var mason = function () {
-			this.stones = [new Stone({
+	.factory('BricksFactory',function BricksFactory() {
+		var factory = function (name) {
+			this.name = name;
+			this.items = [{
 				header: "This is the header.",
-				body: "This is the body, and it is a nice one."
-			}),new Stone({
+				body: "And this is the body, and the body is very nice!"
+			},{
 				header: "This is the header.",
-				body: "This is the body, and it is a nice one."
-			})];
+				body: "And this is the body, and the body is very nice!"
+			}];
 		}
-		mason.prototype.mortar = function (mortar) {
-			var wall = angular.element('#wall');
-			wall.masonry(mortar);
+		factory.prototype.addItem = function () {
+			this.items.push({
+				header: this.item.header,
+				body: this.item.body
+			});
 		}
-		return mason;
-		function Stone (stone) {
-			this.header = stone.header;
-			this.body = stone.body;
+		factory.prototype.removeItem = function (i) {
+			this.items.splice(i,1);
 		}
+		return factory;
 	})
-	.controller('AppController',['$scope','MasonFactory',function AppController($scope,MasonFactory) {
-		$scope.mason = new MasonFactory();
-		$scope.mason.mortar({
-	        columnWidth:  300,
-	        itemSelector: '.brick',
-	        isFitWidth: true
-	    });
+	.controller('AppController',['$scope','BricksFactory',function AppController($scope,BricksFactory) {
+		$scope.bricks = [new BricksFactory("At Mom's"),new BricksFactory("Things You Need")];
 	}])
 ;
