@@ -9,7 +9,7 @@
 		<link rel="stylesheet" type="text/css" href="index.css" />
 	</head>
 <body ng-controller="AppController">
-	<div class="container-fluid">
+	<!-- div class="container-fluid" -->
 		<!-- br />
 		<div class="panel">
 	    	<div class="panel panel-default">
@@ -27,7 +27,30 @@
 			    </div>
 			</div>
 		</div -->
-		<div masonry="{isFitWidth:true}" column-width="300" item-selector=".base-brick" load-images="false">
+
+		<div class="panel base-brick">
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<div class="input-group">
+						<span class="input-group-addon">Stack'em</span>
+						<input type="text" class="form-control" placeholder="e.g., Monday Work Items" ng-model="list.name">
+						<span class="input-group-btn">
+							<button class="btn btn-default" type="button" ng-click="addBrick();"><i class="glyphicon glyphicon-plus"></i></button>
+						</span>
+					</div>
+			    </div>
+			</div>
+		</div>
+
+		<div class="panel base-brick">
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<div class="well well-clock" ng-controller="ClockController"><center>{{time}}</center></div>
+			    </div>
+			</div>
+		</div>
+
+		<div masonry="{isFitWidth:true}" column-width="425" item-selector=".base-brick" load-images="false">
 		    <div masonry-brick class="base-brick" ng-repeat="brick in bricks">
 		    	<div class="panel panel-default">
 					<div class="panel-heading">
@@ -36,7 +59,7 @@
 					<div class="panel-body">
 						<div class="input-group">
 							<span class="input-group-addon">Item</span>
-							<input type="text" class="form-control" placeholder="I am an item." ng-model="brick.item.header">
+							<input type="text" class="form-control" placeholder="Design a deterministic finite automaton." ng-model="brick.item.body">
 							<span class="input-group-btn">
 								<button class="btn btn-default" type="button" ng-click="brick.addItem();"><i class="glyphicon glyphicon-plus"></i></button>
 							</span>
@@ -52,12 +75,14 @@
 				</div>
 		    </div>
 		</div>
-	</div>
-	<script src="bower_components/jquery/dist/jquery.min.js"></script>
-	<script src="bower_components/twitter/dist/js/bootstrap.min.js"></script>
-	<script src="bower_components/masonry/dist/masonry.pkgd.min.js"></script>
-	<script src="bower_components/angular/angular.min.js"></script>
-	<script src="bower_components/angular-masonry/angular-masonry.js"></script>
-	<script src="index.js"></script>
+	<!-- /div -->
+	<!-- Scripts -->
+		<script src="bower_components/jquery/dist/jquery.min.js"></script>
+		<script src="bower_components/twitter/dist/js/bootstrap.min.js"></script>
+		<script src="bower_components/masonry/dist/masonry.pkgd.min.js"></script>
+		<script src="bower_components/angular/angular.min.js"></script>
+		<script src="bower_components/angular-masonry/angular-masonry.js"></script>
+		<script src="index.js"></script>
+	<!-- Scripts -->
 </body>
 </html>

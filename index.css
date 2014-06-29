@@ -1,5 +1,5 @@
 .base-brick {
-	width:290px;
+	width:415px;
 	margin:5px;
 }
 
@@ -10,4 +10,10 @@ div.panel-default {
 .list-group {
 	margin-top:5px;
 	margin-bottom:0px;
+}
+
+.well-clock {
+	margin-bottom:0px;
+	font-size:40px;
+	font-weight:bold;
 }

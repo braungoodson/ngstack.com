@@ -1,19 +1,16 @@
 angular
 	.module('app',['wu.masonry'])
 	.factory('BricksFactory',function BricksFactory() {
-		var factory = function (name) {
-			this.name = name;
+		var factory = function (brick) {
+			this.name = brick.name;
 			this.items = [{
-				header: "This is the header.",
-				body: "And this is the body, and the body is very nice!"
+				body: "Acquire development tools for new projects."
 			},{
-				header: "This is the header.",
-				body: "And this is the body, and the body is very nice!"
+				body: "Research best practices and patterns for legacy data migration."
 			}];
 		}
 		factory.prototype.addItem = function () {
 			this.items.push({
-				header: this.item.header,
 				body: this.item.body
 			});
 		}
@@ -22,7 +19,26 @@ angular
 		}
 		return factory;
 	})
+	.controller('ClockController',['$scope','$interval',function($scope,$interval){
+		tick();
+		$interval(tick,1000);
+		function tick () {
+			var time;
+			var date = new Date();
+			var hours = date.getHours() % 12;
+			var minutes = date.getMinutes();
+			var seconds = date.getSeconds();
+			var meridiem = hours >= 12 ? 'AM' : 'PM';
+			minutes = minutes < 10 ? '0' + minutes : minutes;
+			seconds = seconds < 10 ? '0' + seconds : seconds;
+			time = hours + ':' + minutes + ':' + seconds + ' ' + meridiem;
+			$scope.time = time;
+		}
+	}])
 	.controller('AppController',['$scope','BricksFactory',function AppController($scope,BricksFactory) {
-		$scope.bricks = [new BricksFactory("At Mom's"),new BricksFactory("Things You Need")];
+		$scope.bricks = [];
+		$scope.addBrick = function () {
+			$scope.bricks.push(new BricksFactory({name:$scope.list.name}));
+		}
 	}])
 ;
