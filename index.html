@@ -9,9 +9,18 @@
 		<link rel="stylesheet" type="text/css" href="index.css" />
 	</head>
 <body>
+	<div masonry class="wall" ng-controller="AppController">
+	    <div class="stone" ng-repeat="stone in mason.stones">
+	        <img ng-src="{{stone.src}}" alt="A stone by the Mason.">
+	        <h1>{{stone.header}}</h1>
+	        {{stone.body}}
+	    </div>
+	</div>
 	<script src="bower_components/jquery/dist/jquery.min.js"></script>
 	<script src="bower_components/twitter/dist/js/bootstrap.min.js"></script>
+	<script src="bower_components/masonry/dist/masonry.pkgd.min.js"></script>
 	<script src="bower_components/angular/angular.min.js"></script>
+	<script src="bower_components/angular-masonry/angular-masonry.js"></script>
 	<script src="index.js"></script>
 </body>
 </html>
