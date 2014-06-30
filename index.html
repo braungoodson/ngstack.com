@@ -28,7 +28,7 @@
 			</div>
 		</div -->
 
-		<div class="panel base-brick">
+		<div class="panel base-brick widget-brick">
 			<div class="panel panel-default">
 				<div class="panel-body">
 					<div class="input-group">
@@ -42,7 +42,7 @@
 			</div>
 		</div>
 
-		<div class="panel base-brick">
+		<div class="panel base-brick widget-brick">
 			<div class="panel panel-default">
 				<div class="panel-body">
 					<div class="well well-clock" ng-controller="ClockController"><center>{{time}}</center></div>
@@ -50,7 +50,7 @@
 			</div>
 		</div>
 
-		<div masonry="{isFitWidth:true}" column-width="425" item-selector=".base-brick" load-images="false">
+		<div masonry="{isFitWidth:true}" column-width="425" item-selector=".base-brick" load-images="false" id="brick-wall">
 		    <div masonry-brick class="base-brick" ng-repeat="brick in bricks">
 		    	<div class="panel panel-default">
 					<div class="panel-heading">
@@ -59,7 +59,7 @@
 					<div class="panel-body">
 						<div class="input-group">
 							<span class="input-group-addon">Item</span>
-							<input type="text" class="form-control" placeholder="Design a deterministic finite automaton." ng-model="brick.item.body">
+							<input type="text" class="form-control" placeholder="" ng-model="brick.item.body">
 							<span class="input-group-btn">
 								<button class="btn btn-default" type="button" ng-click="brick.addItem();"><i class="glyphicon glyphicon-plus"></i></button>
 							</span>

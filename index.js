@@ -3,11 +3,7 @@ angular
 	.factory('BricksFactory',function BricksFactory() {
 		var factory = function (brick) {
 			this.name = brick.name;
-			this.items = [{
-				body: "Acquire development tools for new projects."
-			},{
-				body: "Research best practices and patterns for legacy data migration."
-			}];
+			this.items = [];
 		}
 		factory.prototype.addItem = function () {
 			this.items.push({
