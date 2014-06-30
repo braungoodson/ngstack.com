@@ -1,7 +1,7 @@
 {
   "name": "ngstack.com",
   "version": "0.2.0",
-  "description": "jquery, twitter, angularjs; template; +server(express);",
+  "description": "jquery, masonry, twitter, angularjs, angular-masonry. with express server.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
