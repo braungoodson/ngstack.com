@@ -1,7 +1,7 @@
-jta-template
+ngstack.com
 ======
 
-jquery, twitter, and angularjs template. with express server.
+jquery, masonry, twitter, angularjs, angular-masonry. with express server.
 
 usage
 ======
