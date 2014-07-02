@@ -1,13 +1,4 @@
-.base-brick {
-	width:415px;
-	margin:5px;
-}
-
-.widget-brick {
-	width:99%;
-}
-
-div.panel-default {
+.panel-default {
 	margin-bottom:0px;
 }
 
@@ -20,4 +11,62 @@ div.panel-default {
 	margin-bottom:0px;
 	font-size:40px;
 	font-weight:bold;
+}
+
+span.list-group-item-text {
+	word-wrap:break-word;
+}
+
+div.col-sm-6.col-md-3.ng-scope {
+	margin-bottom: 20px;
+}
+
+.item-remove {
+	text-decoration:line-through;
+}
+
+.badge.badge-control {
+	background-color:transparent;
+	color:#ddd;
+	padding-left:2px;
+	padding-right:2px;
+}
+
+.badge.badge-control.badge-control-item-remove:hover {
+	color: rgb(212, 2, 2);
+}
+
+a.list-group-item.item-remove {
+	opacity:.2;
+}
+
+span.list-group-item-text.item-danger {
+	background-color:rgb(212, 2, 2);
+}
+
+span.list-group-item-text.item-ok {
+	background-color:rgb(2, 212, 56);
+}
+
+span.list-group-item-text.item-warning {
+	background-color:rgb(249, 184, 0);
+}
+
+.badge.badge-control.badge-control-item-danger:hover {
+	color:rgb(212, 2, 2);
+	cursor:pointer;
+}
+
+.badge.badge-control.badge-control-item-ok:hover {
+	color:rgb(2, 212, 56);
+}
+
+.badge.badge-control.badge-control-item-warning:hover {
+	color:rgb(249, 184, 0);
+}
+
+.badge.badge-control.badge-control-item-danger:hover,
+.badge.badge-control.badge-control-item-ok:hover,
+.badge.badge-control.badge-control-item-warning:hover {
+	cursor:pointer;
 }

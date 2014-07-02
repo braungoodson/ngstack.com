@@ -1,5 +1,5 @@
 angular
-	.module('app',['wu.masonry'])
+	.module('app',[])
 	.factory('BricksFactory',function BricksFactory() {
 		var factory = function (brick) {
 			this.name = brick.name;
@@ -9,6 +9,7 @@ angular
 			this.items.push({
 				body: this.item.body
 			});
+			this.items.reverse();
 		}
 		factory.prototype.removeItem = function (i) {
 			this.items.splice(i,1);
@@ -35,6 +36,7 @@ angular
 		$scope.bricks = [];
 		$scope.addBrick = function () {
 			$scope.bricks.push(new BricksFactory({name:$scope.list.name}));
+			$scope.bricks.reverse();
 		}
 	}])
 ;
