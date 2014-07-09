@@ -9,72 +9,71 @@
 		<link rel="stylesheet" type="text/css" href="index.css" />
 	</head>
 <body ng-controller="AppController">
-	<div class="container-fluid">
+	<!-- View -->
+		<div class="container-fluid">
 
-		<br />
+			<br />
 
-		<div class="panel">
-			<div class="panel panel-default">
+			<div class="panel">
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<div class="input-group">
+							<span class="input-group-addon">Stack'em!</span>
+							<input type="text" class="form-control" placeholder="e.g., Monday Work Items" ng-model="list.name">
+							<span class="input-group-btn">
+								<button class="btn btn-default" type="button" ng-click="addBrick();"><i class="glyphicon glyphicon-plus"></i></button>
+							</span>
+						</div>
+				    </div>
+				</div>
+			</div>
+
+			<div class="panel">
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<div class="well well-clock" ng-controller="ClockController"><center>{{time}}</center></div>
+				    </div>
+				</div>
+			</div>
+
+	    	<div class="panel panel-default" ng-repeat="brick in bricks track by $index">
+				<div class="panel-heading">
+					<span class="badge badge-control badge-control-item-remove pull-right" ng-click="bricks.splice($index,1);">
+						<i class="glyphicon glyphicon-remove"></i>
+					</span>
+					<h3 class="panel-title">{{brick.name}}</h3>
+				</div>
 				<div class="panel-body">
 					<div class="input-group">
-						<span class="input-group-addon">Stack'em!</span>
-						<input type="text" class="form-control" placeholder="e.g., Monday Work Items" ng-model="list.name">
+						<span class="input-group-addon">Item</span>
+						<input type="text" class="form-control" placeholder="" ng-model="brick.item.body">
 						<span class="input-group-btn">
-							<button class="btn btn-default" type="button" ng-click="addBrick();"><i class="glyphicon glyphicon-plus"></i></button>
+							<button class="btn btn-default" type="button" ng-click="brick.addItem();"><i class="glyphicon glyphicon-plus"></i></button>
+						</span>
+					</div>
+			        <div class="list-group">
+						<span href="#" class="list-group-item" ng-class="{'item-remove':item.remove}" ng-repeat="item in brick.items track by $index">
+							<span class="badge badge-control badge-control-item-remove pull-right" ng-click="item.remove = item.remove ? false : true">
+								<i class="glyphicon glyphicon-remove"></i>
+							</span>
+							<span class="badge badge-control badge-control-item-ok pull-right" ng-click="item.ok = item.ok ? false : true">
+								<i class="glyphicon glyphicon-ok"></i>
+							</span>
+							<span class="badge badge-control badge-control-item-warning pull-right" ng-click="item.warning = item.warning ? false : true">
+								<i class="glyphicon glyphicon-warning-sign"></i>
+							</span>
+							<span class="badge badge-control badge-control-item-danger pull-right" ng-click="item.danger = item.danger ? false : true">
+								<i class="glyphicon glyphicon-fire"></i>
+							</span>
+							<h4 class="list-group-item-heading">{{item.header}}</h4>
+							<span class="list-group-item-text" ng-class="{'item-remove':item.remove,'item-ok':item.ok,'item-warning':item.warning,'item-danger':item.danger}">{{item.body}}</span>
 						</span>
 					</div>
 			    </div>
 			</div>
+
 		</div>
-
-		<div class="panel">
-			<div class="panel panel-default">
-				<div class="panel-body">
-					<div class="well well-clock" ng-controller="ClockController"><center>{{time}}</center></div>
-			    </div>
-			</div>
-		</div>
-
-
-
-
-			    	<div class="panel panel-default" ng-repeat="brick in bricks">
-						<div class="panel-heading">
-							<h3 class="panel-title">{{brick.name}}</h3>
-						</div>
-						<div class="panel-body">
-							<div class="input-group">
-								<span class="input-group-addon">Item</span>
-								<input type="text" class="form-control" placeholder="" ng-model="brick.item.body">
-								<span class="input-group-btn">
-									<button class="btn btn-default" type="button" ng-click="brick.addItem();"><i class="glyphicon glyphicon-plus"></i></button>
-								</span>
-							</div>
-					        <div class="list-group">
-								<span href="#" class="list-group-item" ng-class="{'item-remove':item.remove}" ng-repeat="item in brick.items track by $index">
-									<span class="badge badge-control badge-control-item-remove pull-right" ng-click="item.remove = item.remove ? false : true">
-										<i class="glyphicon glyphicon-remove"></i>
-									</span>
-									<span class="badge badge-control badge-control-item-ok pull-right" ng-click="item.ok = item.ok ? false : true">
-										<i class="glyphicon glyphicon-ok"></i>
-									</span>
-									<span class="badge badge-control badge-control-item-warning pull-right" ng-click="item.warning = item.warning ? false : true">
-										<i class="glyphicon glyphicon-warning-sign"></i>
-									</span>
-									<span class="badge badge-control badge-control-item-danger pull-right" ng-click="item.danger = item.danger ? false : true">
-										<i class="glyphicon glyphicon-fire"></i>
-									</span>
-									<h4 class="list-group-item-heading">{{item.header}}</h4>
-									<span class="list-group-item-text" ng-class="{'item-remove':item.remove,'item-ok':item.ok,'item-warning':item.warning,'item-danger':item.danger}">{{item.body}}</span>
-								</span>
-							</div>
-					    </div>
-					</div>
-
-
-
-
-	</div>
+	<!-- View -->
 	<!-- Scripts -->
 		<script src="bower_components/jquery/dist/jquery.min.js"></script>
 		<script src="bower_components/twitter/dist/js/bootstrap.min.js"></script>

@@ -70,3 +70,7 @@ span.list-group-item-text.item-warning {
 .badge.badge-control.badge-control-item-warning:hover {
 	cursor:pointer;
 }
+
+div.panel.panel-default.ng-scope {
+	margin-bottom: 20px;
+}
