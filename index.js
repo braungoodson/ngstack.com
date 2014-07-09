@@ -3,7 +3,10 @@ angular
 	.factory('BricksFactory',function BricksFactory() {
 		var factory = function (brick) {
 			this.name = brick.name;
-			this.items = [];
+			this.items = [{
+				body: '13308: Trip pages are hashed, and the root cause of 12972.',
+				ok: true
+			}];
 		}
 		factory.prototype.addItem = function () {
 			this.items.push({
@@ -33,7 +36,9 @@ angular
 		}
 	}])
 	.controller('AppController',['$scope','BricksFactory',function AppController($scope,BricksFactory) {
-		$scope.bricks = [];
+		$scope.bricks = [
+			new BricksFactory({name:'Monday Work Items'})
+		];
 		$scope.addBrick = function () {
 			$scope.bricks.push(new BricksFactory({name:$scope.list.name}));
 			$scope.bricks.reverse();
