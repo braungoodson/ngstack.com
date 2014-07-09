@@ -39,8 +39,8 @@
 
 	    	<div class="panel panel-default" ng-repeat="brick in bricks track by $index">
 				<div class="panel-heading">
-					<span class="badge badge-control badge-control-item-remove pull-right" ng-click="bricks.splice($index,1);">
-						<i class="glyphicon glyphicon-remove"></i>
+					<span class="badge badge-control badge-control-item-trash pull-right" ng-click="bricks.splice($index,1);">
+						<i class="glyphicon glyphicon-trash"></i>
 					</span>
 					<h3 class="panel-title">{{brick.name}}</h3>
 				</div>
@@ -54,7 +54,7 @@
 					</div>
 			        <div class="list-group">
 						<span href="#" class="list-group-item" ng-class="{'item-remove':item.remove}" ng-repeat="item in brick.items track by $index">
-							<span class="badge badge-control badge-control-item-remove pull-right" ng-click="item.remove = item.remove ? false : true">
+							<span class="badge badge-control badge-control-item-trash pull-right" ng-click="item.remove = item.remove ? false : true">
 								<i class="glyphicon glyphicon-remove"></i>
 							</span>
 							<span class="badge badge-control badge-control-item-ok pull-right" ng-click="item.ok = item.ok ? false : true">

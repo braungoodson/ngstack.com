@@ -36,6 +36,10 @@ div.col-sm-6.col-md-3.ng-scope {
 	color: rgb(212, 2, 2);
 }
 
+.badge.badge-control.badge-control-item-trash:hover {
+	color: rgb(0, 0, 0);
+}
+
 a.list-group-item.item-remove {
 	opacity:.2;
 }
