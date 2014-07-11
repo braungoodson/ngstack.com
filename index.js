@@ -1,5 +1,7 @@
 angular
+
 	.module('app',[])
+
 	.factory('BricksFactory',function BricksFactory() {
 		var factory = function (brick) {
 			this.name = brick.name;
@@ -16,6 +18,20 @@ angular
 		}
 		return factory;
 	})
+
+	.controller('AppController',['$scope','BricksFactory',function AppController($scope,BricksFactory) {
+		$scope.bricks = [
+			new BricksFactory({name:'Monday Work Items',items:[{
+				body: '13308: Trip pages are hashed, and the root cause of 12972.',
+				warning: true
+			}]})
+		];
+		$scope.addBrick = function () {
+			$scope.bricks.push(new BricksFactory({name:$scope.list.name}));
+			$scope.bricks.reverse();
+		}
+	}])
+
 	.controller('ClockController',['$scope','$interval',function($scope,$interval){
 		tick();
 		$interval(tick,1000);
@@ -32,16 +48,5 @@ angular
 			$scope.time = time;
 		}
 	}])
-	.controller('AppController',['$scope','BricksFactory',function AppController($scope,BricksFactory) {
-		$scope.bricks = [
-			new BricksFactory({name:'Monday Work Items',items:[{
-				body: '13308: Trip pages are hashed, and the root cause of 12972.',
-				warning: true
-			}]})
-		];
-		$scope.addBrick = function () {
-			$scope.bricks.push(new BricksFactory({name:$scope.list.name}));
-			$scope.bricks.reverse();
-		}
-	}])
+	
 ;
